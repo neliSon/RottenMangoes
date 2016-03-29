@@ -142,7 +142,7 @@
                                 <rect key="frame" x="20" y="304" width="560" height="296"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TCell" rowHeight="56" id="FvF-fd-Tx7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TCell" rowHeight="56" id="FvF-fd-Tx7" customClass="ReviewCell">
                                         <rect key="frame" x="0.0" y="28" width="560" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FvF-fd-Tx7" id="LVY-0c-a3b">
@@ -157,12 +157,6 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7R-NZ-ljH">
                                                     <rect key="frame" x="259" y="27" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgO-Yf-RaF">
-                                                    <rect key="frame" x="510" y="8" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -185,6 +179,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgO-Yf-RaF">
+                                                    <rect key="frame" x="510" y="8" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="NgO-Yf-RaF" firstAttribute="top" secondItem="LVY-0c-a3b" secondAttribute="topMargin" id="5Vb-df-VMg"/>
@@ -201,6 +201,14 @@
                                                 <constraint firstItem="oB3-GF-ZVF" firstAttribute="leading" secondItem="LVY-0c-a3b" secondAttribute="leadingMargin" id="ybL-Jf-yBl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="criticLabel" destination="5FQ-sT-2z0" id="yO6-Vt-gAr"/>
+                                            <outlet property="dateLabel" destination="oB3-GF-ZVF" id="oWu-aA-pNt"/>
+                                            <outlet property="freshnessLabel" destination="PfW-FH-KVV" id="9Ip-ir-nmd"/>
+                                            <outlet property="linksLabel" destination="sa5-E5-O3y" id="SQ2-Ee-eKZ"/>
+                                            <outlet property="publicationLabel" destination="I7R-NZ-ljH" id="gy2-g5-zQX"/>
+                                            <outlet property="quoteLabel" destination="NgO-Yf-RaF" id="e41-qQ-uXj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
