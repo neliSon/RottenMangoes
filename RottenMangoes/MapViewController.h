@@ -8,9 +8,12 @@
 
 #import "ViewController.h"
 #import "Movie.h"
+#import "Theatre.h"
 
 @interface MapViewController : UIViewController
 
 @property (strong, nonatomic) Movie *movie;
+@property (strong, nonatomic) Theatre *theatre;
+@property (strong, nonatomic) NSMutableArray *theatres;
 
 @end

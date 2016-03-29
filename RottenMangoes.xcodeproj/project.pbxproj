@@ -20,6 +20,7 @@
 		1BFB2BCE1CAA0EA6007DC0A8 /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BCD1CAA0EA6007DC0A8 /* ReviewCell.m */; };
 		1BFB2BD01CAB0668007DC0A8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFB2BCF1CAB0668007DC0A8 /* MapKit.framework */; };
 		1BFB2BD31CAB0699007DC0A8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BD21CAB0699007DC0A8 /* MapViewController.m */; };
+		1BFB2BD61CAB292F007DC0A8 /* Theatre.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BD51CAB292F007DC0A8 /* Theatre.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		1BFB2BCF1CAB0668007DC0A8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1BFB2BD11CAB0699007DC0A8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		1BFB2BD21CAB0699007DC0A8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		1BFB2BD41CAB292F007DC0A8 /* Theatre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theatre.h; sourceTree = "<group>"; };
+		1BFB2BD51CAB292F007DC0A8 /* Theatre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theatre.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				1BFB2BC11CA9D34A007DC0A8 /* Movie.m */,
 				1BFB2BC91CA9FDC4007DC0A8 /* MovieReview.h */,
 				1BFB2BCA1CA9FDC4007DC0A8 /* MovieReview.m */,
+				1BFB2BD41CAB292F007DC0A8 /* Theatre.h */,
+				1BFB2BD51CAB292F007DC0A8 /* Theatre.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				1BFB2BC51CA9DEF4007DC0A8 /* MovieCell.m in Sources */,
 				1BFB2BD31CAB0699007DC0A8 /* MapViewController.m in Sources */,
 				1BFB2BA71CA9C3FD007DC0A8 /* AppDelegate.m in Sources */,
+				1BFB2BD61CAB292F007DC0A8 /* Theatre.m in Sources */,
 				1BFB2BC21CA9D34A007DC0A8 /* Movie.m in Sources */,
 				1BFB2BCB1CA9FDC4007DC0A8 /* MovieReview.m in Sources */,
 				1BFB2BC81CA9EE7E007DC0A8 /* DetailedViewController.m in Sources */,

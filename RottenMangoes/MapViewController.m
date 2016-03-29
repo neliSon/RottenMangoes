@@ -34,6 +34,10 @@
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
         [self.locationManager requestWhenInUseAuthorization];
     }
+    
+    // use postal code to get theatre info.
+    [self fetchTheatreInfo:self.currentPostalCode];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +65,7 @@
         
         [self.mapView setRegion:region animated:YES]; // auto zoom in to user location
         
-        // use the cooridinates to get our address
+        // use the cooridinates to get our postal code.
         [self reverseGeocodeLocation:myLocation];
     }
     
@@ -76,18 +80,79 @@
         
         CLPlacemark *placemark = [placemarks firstObject];
         if (!placemark.postalCode) {
-            self.currentPostalCode = @"V6B1E6";
+            self.currentPostalCode = @"V6B1E6"; // use random postal code if there is none available.
         }else{
             self.currentPostalCode = placemark.postalCode;
         }
     }];
 }
 
-//- (void) fetch
+- (void) fetchTheatreInfo: (NSString*)postalCode{
+    
+    // maybe use string with format.
+    NSString *endPoint = @"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=";
+    
+    if (!postalCode) {
+        postalCode = @"V6B1E6";
+    }
+    
+    NSString *movieTitle = [self.movie.title stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    NSString *endPointToUse = [[[endPoint  stringByAppendingString:postalCode] stringByAppendingString:@"&movie="] stringByAppendingString:movieTitle];
+    
+
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:endPointToUse] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"error is %@", error.localizedDescription);
+            return;
+        }
+        
+        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        NSArray *theatres = jsonDictionary[@"theatres"];
+        
+        for (NSDictionary *theatre in theatres) {
+            NSString *theatreID = theatre[@"id"];
+            NSString *name = theatre[@"name"];
+            NSString *address = theatre[@"address"];
+            NSNumber *lat = theatre[@"lat"];
+            NSNumber *lng = theatre[@"lng"];
+            
+            Theatre *theatre = [[Theatre alloc] initWithTheatreID:theatreID andName:name andAddress:address andLat:lat andLng:lng];
+            
+            [self.theatres addObject:theatre];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+            // drop pins.
+            for (Theatre *theatre in self.theatres) {
+                [self.mapView addAnnotation:theatre];
+            }
+            
+        });
+        
+    }];
+    
+    [dataTask resume];
+}
 
 #pragma mark - Map View Delegate
 
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
 
+    MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"PlacePin"];
+    
+    if (pin == nil) {
+        pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"PlacePin"];
+    }
+    
+    pin.canShowCallout = YES;
+    
+    return pin;
+}
 
 /*
 #pragma mark - Navigation
