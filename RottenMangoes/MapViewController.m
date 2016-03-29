@@ -40,11 +40,57 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) fetchTheatreInfo: (NSString*)postalCode{
+    
+    // maybe use string with format.
+    NSString *endPoint = @"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=";
+    
+    if (!postalCode) {
+        postalCode = @"V6B1E6";
+    }
+    
+    NSString *movieTitle = [self.movie.title stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    NSString *endPointToUse = [[[endPoint  stringByAppendingString:postalCode] stringByAppendingString:@"&movie="] stringByAppendingString:movieTitle];
+    
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:endPointToUse] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"error is %@", error.localizedDescription);
+            return;
+        }
+        
+        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        NSArray *theatres = jsonDictionary[@"theatres"];
+        
+        for (NSDictionary *theatre in theatres) {
+            NSString *theatreID = theatre[@"id"];
+            NSString *name = theatre[@"name"];
+            NSString *address = theatre[@"address"];
+            NSNumber *lat = theatre[@"lat"];
+            NSNumber *lng = theatre[@"lng"];
+            
+            Theatre *theatre = [[Theatre alloc] initWithTheatreID:theatreID andName:name andAddress:address andLat:lat andLng:lng];
+            
+            [self.theatres addObject:theatre];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // drop pins.
+            for (Theatre *theatre in self.theatres) {
+                [self.mapView addAnnotation:theatre];
+            }
+            
+        });
+        
+    }];
+    
+    [dataTask resume];
 }
-
 
 #pragma mark - Core Location
 
@@ -85,58 +131,6 @@
             self.currentPostalCode = placemark.postalCode;
         }
     }];
-}
-
-- (void) fetchTheatreInfo: (NSString*)postalCode{
-    
-    // maybe use string with format.
-    NSString *endPoint = @"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=";
-    
-    if (!postalCode) {
-        postalCode = @"V6B1E6";
-    }
-    
-    NSString *movieTitle = [self.movie.title stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    
-    NSString *endPointToUse = [[[endPoint  stringByAppendingString:postalCode] stringByAppendingString:@"&movie="] stringByAppendingString:movieTitle];
-    
-
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:endPointToUse] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        if (error) {
-            NSLog(@"error is %@", error.localizedDescription);
-            return;
-        }
-        
-        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        NSArray *theatres = jsonDictionary[@"theatres"];
-        
-        for (NSDictionary *theatre in theatres) {
-            NSString *theatreID = theatre[@"id"];
-            NSString *name = theatre[@"name"];
-            NSString *address = theatre[@"address"];
-            NSNumber *lat = theatre[@"lat"];
-            NSNumber *lng = theatre[@"lng"];
-            
-            Theatre *theatre = [[Theatre alloc] initWithTheatreID:theatreID andName:name andAddress:address andLat:lat andLng:lng];
-            
-            [self.theatres addObject:theatre];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-
-            // drop pins.
-            for (Theatre *theatre in self.theatres) {
-                [self.mapView addAnnotation:theatre];
-            }
-            
-        });
-        
-    }];
-    
-    [dataTask resume];
 }
 
 #pragma mark - Map View Delegate
