@@ -18,6 +18,8 @@
 		1BFB2BC81CA9EE7E007DC0A8 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BC71CA9EE7E007DC0A8 /* DetailedViewController.m */; };
 		1BFB2BCB1CA9FDC4007DC0A8 /* MovieReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BCA1CA9FDC4007DC0A8 /* MovieReview.m */; };
 		1BFB2BCE1CAA0EA6007DC0A8 /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BCD1CAA0EA6007DC0A8 /* ReviewCell.m */; };
+		1BFB2BD01CAB0668007DC0A8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFB2BCF1CAB0668007DC0A8 /* MapKit.framework */; };
+		1BFB2BD31CAB0699007DC0A8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BD21CAB0699007DC0A8 /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,9 @@
 		1BFB2BCA1CA9FDC4007DC0A8 /* MovieReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieReview.m; sourceTree = "<group>"; };
 		1BFB2BCC1CAA0EA6007DC0A8 /* ReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCell.h; sourceTree = "<group>"; };
 		1BFB2BCD1CAA0EA6007DC0A8 /* ReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCell.m; sourceTree = "<group>"; };
+		1BFB2BCF1CAB0668007DC0A8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1BFB2BD11CAB0699007DC0A8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		1BFB2BD21CAB0699007DC0A8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFB2BD01CAB0668007DC0A8 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +63,7 @@
 		1BFB2B961CA9C3FD007DC0A8 = {
 			isa = PBXGroup;
 			children = (
+				1BFB2BCF1CAB0668007DC0A8 /* MapKit.framework */,
 				1BFB2BA11CA9C3FD007DC0A8 /* RottenMangoes */,
 				1BFB2BA01CA9C3FD007DC0A8 /* Products */,
 			);
@@ -129,6 +136,8 @@
 				1BFB2BA91CA9C3FD007DC0A8 /* ViewController.m */,
 				1BFB2BC61CA9EE7E007DC0A8 /* DetailedViewController.h */,
 				1BFB2BC71CA9EE7E007DC0A8 /* DetailedViewController.m */,
+				1BFB2BD11CAB0699007DC0A8 /* MapViewController.h */,
+				1BFB2BD21CAB0699007DC0A8 /* MapViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -218,6 +227,7 @@
 				1BFB2BAA1CA9C3FD007DC0A8 /* ViewController.m in Sources */,
 				1BFB2BCE1CAA0EA6007DC0A8 /* ReviewCell.m in Sources */,
 				1BFB2BC51CA9DEF4007DC0A8 /* MovieCell.m in Sources */,
+				1BFB2BD31CAB0699007DC0A8 /* MapViewController.m in Sources */,
 				1BFB2BA71CA9C3FD007DC0A8 /* AppDelegate.m in Sources */,
 				1BFB2BC21CA9D34A007DC0A8 /* Movie.m in Sources */,
 				1BFB2BCB1CA9FDC4007DC0A8 /* MovieReview.m in Sources */,

@@ -35,7 +35,7 @@
             return;
         }
         NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        NSLog(@"%@", jsonDictionary);
+//        NSLog(@"%@", jsonDictionary);
         
         NSArray *moviesArray = jsonDictionary[@"movies"];
         for (NSDictionary *eachMovie in moviesArray) {

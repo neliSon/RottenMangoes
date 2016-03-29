@@ -10,6 +10,7 @@
 #import "Movie.h"
 #import "MovieReview.h"
 #import "ReviewCell.h"
+#import "MapViewController.h"
 
 @interface DetailedViewController ()
 
@@ -98,14 +99,19 @@
     [dataTask resume];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"ShowMap"]) {
+        MapViewController *mvc = [segue destinationViewController];
+        mvc.movie = self.movie;
+    }
 }
-*/
+
+- (IBAction)showMapButton:(id)sender {
+    [self performSegueWithIdentifier:@"ShowMap" sender:self];
+}
 
 @end
