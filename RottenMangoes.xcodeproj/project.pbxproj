@@ -16,6 +16,8 @@
 		1BFB2BC21CA9D34A007DC0A8 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BC11CA9D34A007DC0A8 /* Movie.m */; };
 		1BFB2BC51CA9DEF4007DC0A8 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BC41CA9DEF4007DC0A8 /* MovieCell.m */; };
 		1BFB2BC81CA9EE7E007DC0A8 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BC71CA9EE7E007DC0A8 /* DetailedViewController.m */; };
+		1BFB2BCB1CA9FDC4007DC0A8 /* MovieReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BCA1CA9FDC4007DC0A8 /* MovieReview.m */; };
+		1BFB2BCE1CAA0EA6007DC0A8 /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB2BCD1CAA0EA6007DC0A8 /* ReviewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		1BFB2BC41CA9DEF4007DC0A8 /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		1BFB2BC61CA9EE7E007DC0A8 /* DetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
 		1BFB2BC71CA9EE7E007DC0A8 /* DetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
+		1BFB2BC91CA9FDC4007DC0A8 /* MovieReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieReview.h; sourceTree = "<group>"; };
+		1BFB2BCA1CA9FDC4007DC0A8 /* MovieReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieReview.m; sourceTree = "<group>"; };
+		1BFB2BCC1CAA0EA6007DC0A8 /* ReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCell.h; sourceTree = "<group>"; };
+		1BFB2BCD1CAA0EA6007DC0A8 /* ReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,8 @@
 			children = (
 				1BFB2BC31CA9DEF4007DC0A8 /* MovieCell.h */,
 				1BFB2BC41CA9DEF4007DC0A8 /* MovieCell.m */,
+				1BFB2BCC1CAA0EA6007DC0A8 /* ReviewCell.h */,
+				1BFB2BCD1CAA0EA6007DC0A8 /* ReviewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -130,6 +138,8 @@
 			children = (
 				1BFB2BC01CA9D34A007DC0A8 /* Movie.h */,
 				1BFB2BC11CA9D34A007DC0A8 /* Movie.m */,
+				1BFB2BC91CA9FDC4007DC0A8 /* MovieReview.h */,
+				1BFB2BCA1CA9FDC4007DC0A8 /* MovieReview.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -206,9 +216,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFB2BAA1CA9C3FD007DC0A8 /* ViewController.m in Sources */,
+				1BFB2BCE1CAA0EA6007DC0A8 /* ReviewCell.m in Sources */,
 				1BFB2BC51CA9DEF4007DC0A8 /* MovieCell.m in Sources */,
 				1BFB2BA71CA9C3FD007DC0A8 /* AppDelegate.m in Sources */,
 				1BFB2BC21CA9D34A007DC0A8 /* Movie.m in Sources */,
+				1BFB2BCB1CA9FDC4007DC0A8 /* MovieReview.m in Sources */,
 				1BFB2BC81CA9EE7E007DC0A8 /* DetailedViewController.m in Sources */,
 				1BFB2BA41CA9C3FD007DC0A8 /* main.m in Sources */,
 			);

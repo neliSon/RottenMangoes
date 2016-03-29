@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "Movie.h"
 #import "MovieCell.h"
+#import "DetailedViewController.h"
 
 @interface ViewController ()
 
+@property (strong, nonatomic) Movie *movie;
 @property (strong, nonatomic) NSMutableArray *movies;
 
 @end
@@ -83,8 +85,16 @@
     return cell;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.movie = self.movies[indexPath.row];
+    [self performSegueWithIdentifier:@"TheSegue" sender:self];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    if ([segue.identifier isEqualToString:@"TheSegue"]) {
+        DetailedViewController *dvc = [segue destinationViewController];
+        dvc.movie = self.movie;
+    }
 }
 
 @end

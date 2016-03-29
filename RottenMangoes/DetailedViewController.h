@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
-@interface DetailedViewController : UIViewController
+@interface DetailedViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) Movie *movie;
 @property (weak, nonatomic) IBOutlet UIImageView *detailedMovieImage;
 @property (weak, nonatomic) IBOutlet UILabel *detailedMovieTitle;
 @property (weak, nonatomic) IBOutlet UILabel *detailedMovieYear;

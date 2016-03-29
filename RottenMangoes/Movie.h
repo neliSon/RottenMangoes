@@ -15,6 +15,7 @@
 @property (assign, nonatomic) NSNumber *year;
 @property (strong, nonatomic) NSString *synopsis;
 @property (strong, nonatomic) NSURL *imageURL;
+@property (strong, nonatomic) UIImage *movieImage;
 
 -(instancetype)initWithTitle:(NSString*)title andYear:(NSNumber*)year andSynopsis:(NSString*)synopsis andImageURLString:(NSString*)imageURLString;
 
