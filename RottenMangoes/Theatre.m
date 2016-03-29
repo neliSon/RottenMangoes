@@ -17,12 +17,12 @@
 
 @implementation Theatre
 
-- (instancetype)initWithTheatreID:(NSString *)theatreID andName:(NSString *)name andAddress:(NSString *)address andLat:(NSNumber *)lat andLng:(NSNumber *)lng
+- (instancetype)initWithTheatreID:(NSString *)theatreID andTitle:(NSString *)title andAddress:(NSString *)address andLat:(NSNumber *)lat andLng:(NSNumber *)lng
 {
     self = [super init];
     if (self) {
         _theatreID = theatreID;
-        _name = name;
+        _title = title;
         _address = address;
 //        _lat = lat;
 //        _lng = lng;

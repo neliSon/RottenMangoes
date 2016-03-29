@@ -29,6 +29,7 @@
     // Create a location manager and set its delegate as the mapviewcontroller.
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    self.theatres = [NSMutableArray array];
     
     // Request allow location access to device.
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
@@ -68,12 +69,12 @@
         
         for (NSDictionary *theatre in theatres) {
             NSString *theatreID = theatre[@"id"];
-            NSString *name = theatre[@"name"];
+            NSString *title = theatre[@"name"];
             NSString *address = theatre[@"address"];
             NSNumber *lat = theatre[@"lat"];
             NSNumber *lng = theatre[@"lng"];
             
-            Theatre *theatre = [[Theatre alloc] initWithTheatreID:theatreID andName:name andAddress:address andLat:lat andLng:lng];
+            Theatre *theatre = [[Theatre alloc] initWithTheatreID:theatreID andTitle:title andAddress:address andLat:lat andLng:lng];
             
             [self.theatres addObject:theatre];
         }
@@ -81,6 +82,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             // drop pins.
+            
             for (Theatre *theatre in self.theatres) {
                 [self.mapView addAnnotation:theatre];
             }
@@ -137,6 +139,10 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
 
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    
     MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"PlacePin"];
     
     if (pin == nil) {

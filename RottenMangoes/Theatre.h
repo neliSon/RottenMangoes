@@ -13,10 +13,10 @@
 @interface Theatre : NSObject <MKAnnotation>
 
 @property (strong, nonatomic) NSString *theatreID;
-@property (strong, nonatomic) NSString *name;
+@property (copy, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *address;
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
 
--(instancetype)initWithTheatreID:(NSString*)theatreID andName:(NSString*)name andAddress:(NSString*)address andLat:(NSNumber*)lat andLng:(NSNumber*)lng;
+-(instancetype)initWithTheatreID:(NSString*)theatreID andTitle:(NSString*)title andAddress:(NSString*)address andLat:(NSNumber*)lat andLng:(NSNumber*)lng;
 
 @end
